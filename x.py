@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from itertools import combinations
 import os
 
-# --- Helper Functions ---
+
 
 def detect_edges(img):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -66,7 +66,7 @@ def draw_results(img, lines, vp):
 
     return result
 
-# --- Process Folder and Show All Images ---
+
 
 def process_and_display_all(folder_path, max_images=4):
     image_files = [f for f in os.listdir(folder_path) if f.lower().endswith(('.jpg', '.png', '.jpeg'))]
@@ -93,7 +93,7 @@ def process_and_display_all(folder_path, max_images=4):
         results.append(cv2.cvtColor(result, cv2.COLOR_BGR2RGB))
         titles.append(image_file)
 
-    # Display all results in a grid
+    
     plt.figure(figsize=(16, 8))
     for i, (img, title) in enumerate(zip(results, titles)):
         plt.subplot(1, len(results), i + 1)
@@ -103,8 +103,8 @@ def process_and_display_all(folder_path, max_images=4):
     plt.tight_layout()
     plt.show()
 
-# --- Run ---
+
 
 if __name__ == "__main__":
-    folder_path = "/Users/saivenkatr/Downloads/Estimate_vanishing_points_data"  # Replace with your folder
+    folder_path = "/Users/saivenkatr/Downloads/Estimate_vanishing_points_data"  
     process_and_display_all(folder_path)
